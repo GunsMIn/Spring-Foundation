@@ -6,7 +6,10 @@ import com.hello.core.discount.RateDiscountPolicy;
 import com.hello.core.member.Member;
 import com.hello.core.member.MemberRepository;
 import com.hello.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
@@ -23,6 +26,7 @@ public class OrderServiceImpl implements OrderService {
 
     //생성자 주입
     //여기서 제일 중요한게 생성자를 통해서 어떤구현 객체가 주입할지는 오직 외부 AppConfig가 결정한다
+    @Autowired  // 이것을 해주면 자동으로 주입해준다.
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
