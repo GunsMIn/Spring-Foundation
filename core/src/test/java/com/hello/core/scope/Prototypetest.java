@@ -15,7 +15,7 @@ public class Prototypetest {
     void prototypeFind() {
         AnnotationConfigApplicationContext ac = new
                 AnnotationConfigApplicationContext(PrototypeBean.class);
-        
+
         PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
         prototypeBean1.addCount();
         assertThat(prototypeBean1.getCount()).isEqualTo(1);
